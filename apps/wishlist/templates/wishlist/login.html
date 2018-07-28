@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login page</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'wishlist/css/login.css' %}">
+</head>
+<body>
+	<div class="container">
+		<div class="register">
+			<h1>Register</h1>
+			<form action="/register" method="POST">
+				{% csrf_token %}
+				<label>Name:</label>
+				<input type="text" name="name">
+				<label>Username:</label>
+				<input type="text" name="username">
+				<h3>*Password must be at least 8 characters</h3>
+				<label>Password:</label>
+				<input type="password" name="password">
+				<label>Confirm Password:</label>
+				<input type="password" name="cnfrm_password">
+				<label>Date Hired:</label>
+				<input type="date" name="hire">
+				<input type="submit" name="submit" value="Register">
+			</form>
+		</div>
+		<div class="login">
+			<h1>Login</h1>
+			<form action="/login" method="POST">
+				{% csrf_token %}
+				<label>Username:</label>
+				<input type="text" name="username">
+				<label>Password</label>
+				<input type="password" name="password">
+				<input type="submit" name="submit" value="Login">
+			</form>
+		</div>
+		{% if messages %}
+			<ul class="messages">
+    		{% for message in messages %}
+    			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    		{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
+</body>
+</html>

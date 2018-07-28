@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard Page</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'wishlist/css/dashboard.css' %}">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>Hello, {{user.username}}!</h1>
+			<a href="/logout">Logout</a>
+		</div>
+		<h3>Your wish list</h3>
+		<div class="user_wishlist">
+			<table>
+				<thead>
+					<tr>
+						<th>Item</th>
+						<th>Added By</th>
+						<th>Date Added</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+					{% for wish in my_list %}
+				<tbody>
+					<tr>
+						<td><a href="/wish_item/{{wish.id}}">{{wish.w_name}}</a></td>
+						<td>{{wish.added_by}}</td>
+						<td>{{wish.created_at}}</td>
+						<td><a href="/wish_item_remove/{{wish.id}}">Remove from my wish list</a></td>
+					</tr>
+				</tbody>
+					{% endfor %}
+			</table>
+		</div>
+		<h3>Other user's wish list</h3>
+		<div class="other_wishlist">
+			<table>
+				<thead>
+					<tr>
+						<th>Item</th>
+						<th>Added By</th>
+						<th>Date Added</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				{% for wish in wishes %}
+				<tbody>
+						<td><a href="/wish_item/{{wish.id}}">{{wish.w_name}}</a></td>
+						<td>{{wish.added_by}}</td>
+						<td>{{wish.created_at}}</td>
+						<td><a href="/wish_item_add/{{wish.id}}">Add my wish list</a></td>					
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+		<a href="/wish">Add item</a>
+	</div>
+
+</body>
+</html>

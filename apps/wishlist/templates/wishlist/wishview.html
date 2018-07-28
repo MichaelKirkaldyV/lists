@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wish view</title>
+	{% load static %}
+</head>
+<body>
+	<div class="container">
+		<a href="/dashboard">Home</a>
+		<a href="/logout">Logout</a>
+		<h1>{{wish.w_name}}</h1>
+		<h3>Users who add this item/product on their wishlist</h3>
+		{% for user in users %}
+		{{user.username}}
+		{% endfor %}
+	</div>
+
+</body>
+</html>

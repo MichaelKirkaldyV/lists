@@ -1,0 +1,43 @@
+.container{
+	height: 950px;
+	width: 1000px;
+	padding: 20px;
+	border: 5px solid black;
+}
+
+.header{
+	width: 950px;
+	height: 100px;
+	padding: 20px;
+	border: 2px solid black;
+}
+
+.header, h1{
+	display: inline-block;
+}
+
+a{
+	margin-left: 700px;
+	font-size: 20px;
+}
+
+.user_wishlist{
+	height: 300px;
+	width: 700px;
+	border: 5px solid black;
+	margin-bottom: 50px;
+}
+
+.other_wishlist{
+	height: 300px;
+	width: 700px;
+	border: 5px solid black;
+}
+
+table{
+	width: 600px;
+}
+
+table, a{
+	margin: 0;
+}
